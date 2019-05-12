@@ -59,19 +59,20 @@ void CMFCApplication1View::OnDraw(CDC* pDC)
     if (!pDoc)
         return;
     // TODO: add draw code for native data here
-    if (m_nTimerID == -1)
+    if (g_timerID == 1)
     {
         m_nTimerID = SetTimer(g_timerID, 100, NULL);
         g_timerID++;
     }
-    if ((m_nTimerID == 1)|| (m_nTimerID == 4))
+    if (m_nTimerID == 1)
     {
-        CString s = pDoc->GetData();   // Returns a CString
-        CRect rect;
-        GetClientRect(&rect);
-
-        pDC->SetTextAlign(TA_BASELINE | TA_CENTER);
-        pDC->TextOut(rect.right / 2, rect.bottom / 2, s, s.GetLength());
+        CGraphicItem* item;
+        // Draw all graphic item
+        for (int i = 0; i < pDoc->m_arrGraphicItem.GetSize(); i++)
+        {
+            item = pDoc->m_arrGraphicItem.GetAt(i);
+            pDC->FillSolidRect(item->m_rect, rand());
+        }
     }
 }
 
@@ -122,13 +123,7 @@ void CMFCApplication1View::OnTimer(UINT_PTR nIDEvent)
 {
     // TODO: Add your message handler code here and/or call default
     CMFCApplication1Doc* pDoc = GetDocument();
-    pDoc->UpdateAllViews(this);
-    CString strOut;
-    if (nIDEvent == m_nTimerID)
-    {
-        strOut.Format(L"Hello world %d", m_count);
-        m_count += 2;
-    }
-    pDoc->SetData(strOut);
+    pDoc->UpdateAllViews(NULL);
+    KillTimer(nIDEvent);
     CView::OnTimer(nIDEvent);
 }

@@ -183,8 +183,8 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="FormLeft.h" />
-    <ClInclude Include="FromRight.h" />
+    <ClInclude Include="GraphicItem.h" />
+    <ClInclude Include="LeftFrame.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="MFCApplication1.h" />
     <ClInclude Include="MFCApplication1Doc.h" />
@@ -196,8 +196,8 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FormLeft.cpp" />
-    <ClCompile Include="FromRight.cpp" />
+    <ClCompile Include="GraphicItem.cpp" />
+    <ClCompile Include="LeftFrame.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="MFCApplication1.cpp" />
     <ClCompile Include="MFCApplication1Doc.cpp" />

@@ -6,10 +6,9 @@
 #include "MFCApplication1.h"
 
 #include "MainFrm.h"
-#include "FormLeft.h"
-#include "FromRight.h"
 #include "MFCApplication1View.h"
 #include "SubFrameWnd.h"
+#include "LeftFrame.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -71,7 +70,6 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 }
 
 // CMainFrame diagnostics
-
 #ifdef _DEBUG
 void CMainFrame::AssertValid() const
 {
@@ -82,7 +80,20 @@ void CMainFrame::Dump(CDumpContext& dc) const
 {
 	CFrameWnd::Dump(dc);
 }
-#endif //_DEBUG
+#endif
+
+CRect CMainFrame::GetLeftFrameSize()
+{
+    CRect rc;
+    m_leftFrameWnd->GetClientRect(&rc);
+    return rc;
+}
+CRect CMainFrame::GetRightFrameSize()
+{
+    CRect rc;
+    m_rightFrameWnd->GetWindowRect(&rc);
+    return rc;
+}
 
 
 // CMainFrame message handlers
@@ -101,12 +112,13 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
     // Get current pane(0,0) position
 
 
-    if (!m_wndSplitter.CreateView(0, 0, RUNTIME_CLASS(CMFCApplication1View), CSize(1000, 1000), pContext) ||
+    if (!m_wndSplitter.CreateView(0, 0, RUNTIME_CLASS(CLeftFrame), CSize(1000, 1000), pContext) ||
         !m_wndSplitter.CreateView(0, 1, RUNTIME_CLASS(CSubFrameWnd), CSize(crClient.Width(), crClient.Height()), pContext))
     {
         m_wndSplitter.DestroyWindow();
         return FALSE;
     }
-
+    m_leftFrameWnd = m_wndSplitter.GetPane(0, 0);
+    m_rightFrameWnd = m_wndSplitter.GetPane(0, 1);
     return TRUE;
 }

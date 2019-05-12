@@ -29,9 +29,13 @@ public:
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
+    CRect               GetLeftFrameSize();
+    CRect               GetRightFrameSize();
 
 protected:  // control bar embedded members
-	CToolBar          m_wndToolBar;
+	CToolBar            m_wndToolBar;
+    CWnd*               m_leftFrameWnd;
+    CWnd*               m_rightFrameWnd;
 
 // Generated message map functions
 protected:

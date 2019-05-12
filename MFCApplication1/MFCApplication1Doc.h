@@ -4,7 +4,7 @@
 
 
 #pragma once
-
+#include "GraphicItem.h"
 
 class CMFCApplication1Doc : public CDocument
 {
@@ -46,4 +46,24 @@ protected:
 	// Helper function that sets search content for a Search Handler
 	void SetSearchContent(const CString& value);
 #endif // SHARED_HANDLERS
+
+// Custom
+public:
+    // Functions
+    BOOL GridLeftView(unsigned int row, unsigned int column);
+    void UpdateLeftFrameRect(CRect size);
+    void UpdateData();
+    unsigned int GetLeftFrameRow();
+    unsigned int GetLefttFrameColumn();
+
+    // Variables
+    CArray<CGraphicItem*>   m_arrGraphicItem;;
+
+protected:
+    // Function
+
+    // Variables
+    unsigned int            m_row;
+    unsigned int            m_column;
+    CRect                   m_rectLeftFrame;
 };

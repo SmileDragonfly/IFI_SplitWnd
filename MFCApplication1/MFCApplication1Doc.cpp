@@ -143,3 +143,46 @@ void CMFCApplication1Doc::SetData(CString strInput)
 
 
 // CMFCApplication1Doc commands
+
+
+// Split left view to n*m 
+BOOL CMFCApplication1Doc::GridLeftView(unsigned int row, unsigned int column)
+{
+    m_row = row;
+    m_column = column;
+    CSize itemSize((m_rectLeftFrame.right - m_rectLeftFrame.left) / column, (m_rectLeftFrame.bottom - m_rectLeftFrame.top) / row);
+
+    for (int i = 0; i < (row*column); i++)
+    {
+        CGraphicItem* item = new CGraphicItem();
+        unsigned int col = i % column;
+        unsigned int row = (unsigned int)i / column;
+        item->m_rect.left = col * itemSize.cx;
+        item->m_rect.right = item->m_rect.left + itemSize.cx;
+        item->m_rect.top = row * itemSize.cy;
+        item->m_rect.bottom = item->m_rect.top + itemSize.cy;
+        m_arrGraphicItem.Add(item);
+    }
+
+    return 0;
+}
+
+void CMFCApplication1Doc::UpdateLeftFrameRect(CRect rc)
+{
+    m_rectLeftFrame = rc;
+}
+
+void CMFCApplication1Doc::UpdateData()
+{
+    UpdateAllViews(NULL);
+}
+
+unsigned int CMFCApplication1Doc::GetLeftFrameRow()
+{
+    return m_row;
+}
+
+unsigned int CMFCApplication1Doc::GetLefttFrameColumn()
+{
+    return m_column;
+}

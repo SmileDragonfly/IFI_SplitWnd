@@ -36,16 +36,16 @@
     <ClInclude Include="Resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FormLeft.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FromRight.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MySplitterWnd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SubFrameWnd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LeftFrame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicItem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -65,16 +65,16 @@
     <ClCompile Include="MFCApplication1View.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FormLeft.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FromRight.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MySplitterWnd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SubFrameWnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LeftFrame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicItem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

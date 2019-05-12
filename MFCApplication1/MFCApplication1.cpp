@@ -9,7 +9,7 @@
 #include "MainFrm.h"
 
 #include "MFCApplication1Doc.h"
-#include "MFCApplication1View.h"]
+#include "MFCApplication1View.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -123,6 +123,12 @@ BOOL CMFCApplication1App::InitInstance()
 	// The one and only window has been initialized, so show and update it
 	m_pMainWnd->ShowWindow(SW_SHOW);
 	m_pMainWnd->UpdateWindow();
+    // Update left frame rect
+    CMainFrame* mainFrame = (CMainFrame*)AfxGetMainWnd();
+    CMFCApplication1Doc* pDoc = (CMFCApplication1Doc*)mainFrame->GetActiveDocument();
+    pDoc->UpdateLeftFrameRect(mainFrame->GetLeftFrameSize());
+    // Grid view
+    pDoc->GridLeftView(4, 4);
 	return TRUE;
 }
 
@@ -177,6 +183,3 @@ void CMFCApplication1App::OnAppAbout()
 }
 
 // CMFCApplication1App message handlers
-
-
-
