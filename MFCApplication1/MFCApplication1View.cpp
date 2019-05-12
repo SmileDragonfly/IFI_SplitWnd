@@ -71,7 +71,7 @@ void CMFCApplication1View::OnDraw(CDC* pDC)
         for (int i = 0; i < pDoc->m_arrGraphicItem.GetSize(); i++)
         {
             item = pDoc->m_arrGraphicItem.GetAt(i);
-            pDC->FillSolidRect(item->m_rect, rand());
+            pDC->FillSolidRect(item->m_rect, rand() * 100);
         }
     }
 }

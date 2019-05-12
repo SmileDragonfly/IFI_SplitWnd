@@ -42,9 +42,6 @@
     <ClInclude Include="SubFrameWnd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LeftFrame.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GraphicItem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -69,9 +66,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SubFrameWnd.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LeftFrame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GraphicItem.cpp">

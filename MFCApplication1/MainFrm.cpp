@@ -8,7 +8,6 @@
 #include "MainFrm.h"
 #include "MFCApplication1View.h"
 #include "SubFrameWnd.h"
-#include "LeftFrame.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -112,7 +111,7 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
     // Get current pane(0,0) position
 
 
-    if (!m_wndSplitter.CreateView(0, 0, RUNTIME_CLASS(CLeftFrame), CSize(1000, 1000), pContext) ||
+    if (!m_wndSplitter.CreateView(0, 0, RUNTIME_CLASS(CMFCApplication1View), CSize(1000, 1000), pContext) ||
         !m_wndSplitter.CreateView(0, 1, RUNTIME_CLASS(CSubFrameWnd), CSize(crClient.Width(), crClient.Height()), pContext))
     {
         m_wndSplitter.DestroyWindow();
